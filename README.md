@@ -1,5 +1,5 @@
 # NAME
-    `mkqif.py` - convert downloaded finance CSV files to QIF files.
+    `mkqif.py` - convert finance CSV files to QIF files.
 
 # SYNOPIS
 ```
