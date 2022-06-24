@@ -1,0 +1,70 @@
+!Type:CCard
+D16-06-2021
+T-100.00
+PMafia
+^
+!Type:CCard
+D16-06-2021
+T-200.00
+PProtection
+^
+!Type:CCard
+D16-06-2021
+T300.00
+PPayment
+^
+
+barclays  : Files: 1/1 Rows: 003/003 r/w, 000/001 c/e. Balance:     0.00
+barclays  : Files: 1/1 Rows: 003/003 r/w, 000/001 c/e. Balance:     0.00
+!Type:CCard
+D16-06-2021
+T-100.00
+PMafia
+^
+!Type:CCard
+D16-06-2021
+T-200.00
+PProtection
+^
+!Type:CCard
+D16-06-2021
+T300.00
+PPayment
+^
+!Type:CCard
+D16-06-2021
+T-100.00
+PMafia
+^
+!Type:CCard
+D16-06-2021
+T-200.00
+PProtection
+^
+!Type:CCard
+D16-06-2021
+T300.00
+PPayment
+^
+
+barclays  : Files: 0/1 Rows: 003/003 r/w, 000/001 c/e. Balance:     0.00
+!Type:CCard
+D04-06-2019
+T200.00
+PRefund
+^
+!Type:CCard
+D05-06-2019
+T99.99
+PDD Payment
+^
+!Type:CCard
+D05-06-2019
+T-99.99
+PPayee
+^
+
+test      : Files: 0/1 Rows: 003/003 r/w, 000/001 c/e. Balance:   200.00
+mkqif.py: [test] Error: credit/debit atof() failed: could not convert string to float: 'xxx' - 2c:2c:78:78:78:2c:2c
+test      : Files: 0/1 Rows: 000/000 r/w, 001/001 c/e. Balance:     0.00
+mkqif.py: no CSV formats have been configured.
