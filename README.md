@@ -99,10 +99,10 @@ key=value pairs within the section.  Values must not be quoted.
 Date formats are converted by the date.strftime() function.  Common
 specifiers are:
 
-  %d - two digit day of month
-  %m - two digit month of year
-  %Y - four digit year
-  %b - abbreviated month (e.g. Jan)
+-  %d - two digit day of month
+-  %m - two digit month of year
+-  %Y - four digit year
+-  %b - abbreviated month (e.g. Jan)
 
 A full list can be found at: https://docs.python.org/3/library/datetime.html
 
