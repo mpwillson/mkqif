@@ -1,11 +1,14 @@
 # NAME
-    `mkqif.py` - convert finance CSV files to QIF files.
+
+`mkqif.py` - convert finance CSV files to QIF files.
 
 # SYNOPIS
+
 ```
-    python mkqif.py [-c cutoff_date] [-d source_dir] [-e effective_date]
-                    [-f config_file] [-i fi_name[, ...]] [-n] [--no-date-check]
-                    [-o output_dir] [-s] [-v] [-x] [fi_name,csv_file ...]
+python mkqif.py [-c cutoff_date] [-d source_dir] [-e effective_date]
+                [-f config_file] [-i fi_name[, ...]] [-n]
+                [--no-date-check] [-o output_dir] [-s] [-v] [-x]
+                [fi_name,csv_file ...]
 ```
 
 ##  Command options:
@@ -14,7 +17,7 @@
 : Transactions earlier than this date will be skipped.  Default is
   seven days prior to effective date.
 
-`-d source_dir/`
+`-d source_dir`
 : Set directory where CSV files are located.
   Default is ./ (i.e. working directory).
 
@@ -35,7 +38,7 @@
 `--no-date-check`
 : Do not check modification date of candidate CSV files.
 
-`-o output_dir/`
+`-o output_dir`
 : QIF files are written to output_dir. Default is ./
   (i.e. working directory).
 
@@ -58,6 +61,7 @@ appropriate conversion for the named CSV `file`. If the `-i` option
 has been provided, it will be ignored.
 
 # DESCRIPTION
+
 `mkqif.py` converts financial transaction data from CSV file format to QIF
 for subsequent input into Microsoft Money.
 
@@ -139,6 +143,7 @@ Configuration file parameter settings are overridden by command line
 options.
 
 # NOTES
+
 QIF uses positive values for a credit, negative values for a debit. If
 the financial input data doesn't follow this convention or `mkqif.py`
 can't disambiguate a credit from a debit, set debit_is_negative to
