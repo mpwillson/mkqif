@@ -249,10 +249,10 @@ class CSVFormat:
 
         """
         try:
-            # remove any embedded spaces in debit/credit strings,
+            # remove any embedded spaces in debit string,
             # otherwise locale.atof() errors.
             amount = row[self.debit_col].replace(' ','')
-            credit = row[self.credit_col].replace(' ','')
+            credit = row[self.credit_col]
             amount = 0 if amount == "" else locale.atof(amount)
             if self.credit_regexp:
                 if re.match(self.credit_regexp,credit):
@@ -266,6 +266,7 @@ class CSVFormat:
             # (the payee column is sometimes abused to indicate credit
             # payment)
             if credit != "" and self.credit_col != self.payee_col:
+                credit = credit.replace(' ','')
                 fcredit = locale.atof(credit)
                 if fcredit < 0: fcredit = -fcredit
                 if fcredit != 0: return fcredit #!! credit of 0 is not a credit
