@@ -4,7 +4,8 @@
 #   mkqif.py - convert downloaded finance CSV files to QIF files.
 #
 # SYNOPIS
-#   python mkqif.py [-c cutoff_date] [-d source_dir] [-e effective_date]
+#   python mkqif.py [-c cutoff_date] [--cutoff-delta n]
+#                   [-d source_dir] [-e effective_date]
 #                   [-f config_file] [-i fi_name[,...]] [-n] [--no-date-check]
 #                   [-o output_dir] [-s] [-v] [-x] [fi_name,csv_file ...]
 #
@@ -52,6 +53,8 @@
 #   Introduce MQException to handle more errors
 #   Add -v option
 #   Add --no-date-check option
+# mkqif.py     20221121 3.1   mpw
+#   Add --cutoff-delta option
 
 # for 2.7 print function to handle file= argument
 from __future__ import print_function
@@ -392,7 +395,8 @@ def process_cmd_args(params,args):
     config_file = params.config_file
     cmd_args = {}
     try:
-        opts,files = getopt.getopt(args,'c:d:e:f:i:no:svx',('no-date-check'))
+        opts,files = getopt.getopt(args,'c:d:e:f:i:no:svx',
+                                   ('no-date-check', 'cutoff-delta='))
     except getopt.GetoptError as err:
         print("%s: %s"%(params.script,err))
         sys.exit(1)
@@ -420,6 +424,11 @@ def process_cmd_args(params,args):
                 cmd_args['verbose'] = True
             elif o == '--no-date-check':
                 cmd_args['date_check'] = False
+            elif o == '--cutoff-delta':
+                try:
+                    cmd_args['cutoff_delta'] = datetime.timedelta(int(v))
+                except ValueError as e:
+                    raise MQException('bad integer value')
     except MQException as e:
         print("%s: option %s: %s" % (params.script, o, e.msg))
         sys.exit(1)

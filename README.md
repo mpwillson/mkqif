@@ -5,7 +5,8 @@
 # SYNOPIS
 
 ```
-python mkqif.py [-c cutoff_date] [-d source_dir] [-e effective_date]
+python mkqif.py [-c cutoff_date] [--cutoff-delta delta]
+                [-d source_dir] [-e effective_date]
                 [-f config_file] [-i fi_name[, ...]] [-n]
                 [--no-date-check] [-o output_dir] [-s] [-v] [-x]
                 [fi_name,csv_file ...]
@@ -16,6 +17,10 @@ python mkqif.py [-c cutoff_date] [-d source_dir] [-e effective_date]
 `-c cutoff_date`
 : Transactions earlier than this date will be skipped.  Default is
   seven days prior to effective date.
+
+`--cutoff-delta delta`
+: Cutoff date will be computed as delta days before effective
+  date. This option will be ignored if `-c` is specified.
 
 `-d source_dir`
 : Set directory where CSV files are located.
