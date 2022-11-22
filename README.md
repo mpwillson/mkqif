@@ -2,7 +2,7 @@
 
 `mkqif.py` - convert finance CSV files to QIF files.
 
-# SYNOPIS
+# SYNOPSIS
 
 ```
 python mkqif.py [-c cutoff_date] [--cutoff-delta delta]
