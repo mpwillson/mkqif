@@ -7,7 +7,7 @@
 ```
 python mkqif.py [-c cutoff_date] [--cutoff-delta delta]
                 [-d source_dir] [-e effective_date]
-                [-f config_file] [-i fi_name[, ...]] [-n]
+                [-f config_file] [-i fi_name[,fi_name ...]] [-n]
                 [--no-date-check] [-o output_dir] [-s] [-v] [-x]
                 [fi_name,csv_file ...]
 ```
@@ -32,7 +32,7 @@ python mkqif.py [-c cutoff_date] [--cutoff-delta delta]
 `-f config_file`
 : Override default configuration file './mkqif.cfg'.
 
-`-i fi_name[, ...]`
+`-i fi_name[,fi_name ...]`
 : Sets financial institution (FI) name(s) to convert, as a comma
   separated list.  Default is all defined in
   the configuration file.
