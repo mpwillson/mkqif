@@ -263,8 +263,7 @@ class CSVFormat:
                 else:
                     return amount if amount < 0 else -amount
             if self.debit_col == self.credit_col:
-                return amount if amount < 0 and self.debit_is_negative \
-                    else -amount
+                return amount if self.debit_is_negative else -amount
             # valid credit is non-blank and not in the payee column
             # (the payee column is sometimes abused to indicate credit
             # payment)
