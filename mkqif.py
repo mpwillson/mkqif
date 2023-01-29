@@ -60,12 +60,10 @@
 from __future__ import print_function
 import codecs
 # ConfigParser module name changed between 2.7 and 3.6
-# Use RawConfigParser to turn off variable interpolation in Python 3
-#  so that date formats are accepted
 try:
-    from ConfigParser import RawConfigParser
+    from ConfigParser import ConfigParser
 except:
-    from configparser import RawConfigParser
+    from configparser import ConfigParser
 import csv
 import datetime
 import getopt
@@ -117,7 +115,8 @@ def process_config_file(default_params,pathname):
         pairs.  Returns new params."""
     params = default_params
     if os.path.exists(pathname):
-        config = RawConfigParser()
+        # Disallow interpolation due to use of date formatters in config file
+        config = ConfigParser(interpolation=None)
         config.read(pathname)
         try:
             # handle parameters and create CSVFormats from config file
@@ -127,6 +126,9 @@ def process_config_file(default_params,pathname):
                     params = default_params._replace(**props)
                 else:
                     props['name'] = inst
+                    props['debit_is_negative'] = \
+                            config.getboolean(inst, 'debit_is_negative',
+                                              fallback = True)
                     CSVFormat(**props)
             fi_names = {'fi_names': CSVFormat.formats.keys(),
                         'institutions': CSVFormat.formats}
