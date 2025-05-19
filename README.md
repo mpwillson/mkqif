@@ -142,6 +142,10 @@ file_regexp=barclays.*csv
 date_format=%d/%b/%Y
 ; regexp to indentify credit is in debit column
 credit_regexp=PAYMENT.*
+; regexp to identify a transaction that should be ignored (e.g. FI commentary)
+ignore_regexp=Processing Received Payment
+; set column containing ignore value (defaults to 1)
+ignore_col=1
 ```
 
 Configuration file parameter settings are overridden by command line

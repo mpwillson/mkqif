@@ -192,7 +192,7 @@ class CSVFormat:
                  date_col=0, payee_col=1, debit_col=2, credit_col=3,
                  ncols=4, nheaders=0, file_regexp=".*\.csv",
                  date_format="%d-%m-%Y", credit_regexp=None,
-                 debit_is_negative=True):
+                 ignore_regexp=None, ignore_col=1, debit_is_negative=True):
         self.name = name
         if type in ('CCard', 'Bank'):
             self.type = type
@@ -208,6 +208,8 @@ class CSVFormat:
         self.regexp = file_regexp
         self.date_format = date_format
         self.credit_regexp = credit_regexp
+        self.ignore_regexp = ignore_regexp
+        self.ignore_col = ignore_col
         self.debit_is_negative = debit_is_negative
         self.csv_rows = []
         self.pathnames = []
@@ -317,6 +319,9 @@ class CSVFormat:
         qif_text = ''
         rows = csv.reader(self.csv_rows)
         for row in rows:
+            if self.ignore_regexp and \
+               re.match(self.ignore_regexp, row[self.ignore_col]):
+                continue
             if len(row) == 0: empty += 1
             elif len(row) != self.ncols:
                 ncols_mismatch += 1
