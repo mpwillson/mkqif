@@ -319,10 +319,12 @@ class CSVFormat:
         qif_text = ''
         rows = csv.reader(self.csv_rows)
         for row in rows:
+            if not row:
+                empty += 1
+                continue
             if self.ignore_regexp and \
                re.match(self.ignore_regexp, row[self.ignore_col]):
                 continue
-            if len(row) == 0: empty += 1
             elif len(row) != self.ncols:
                 ncols_mismatch += 1
             else:
