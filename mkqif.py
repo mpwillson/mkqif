@@ -190,7 +190,7 @@ class CSVFormat:
 
     def __init__(self, name='Default', type = 'CCard',
                  date_col=0, payee_col=1, debit_col=2, credit_col=3,
-                 ncols=4, nheaders=0, file_regexp=".*\.csv",
+                 ncols=4, nheaders=0, file_regexp=".*\\.csv",
                  date_format="%d-%m-%Y", credit_regexp=None,
                  ignore_regexp=None, ignore_col=1, debit_is_negative=True):
         self.name = name
